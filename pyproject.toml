@@ -8,15 +8,29 @@ version = "0.1.0"
 description = "TONY - NLP tools for mental health"
 requires-python = ">=3.9"
 dependencies = [
-    "transformers",
-    "torch",
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
     "pandas",
     "numpy",
     "sentence-transformers",
     "plotly",
     "tqdm",
     "scikit-learn",
+    "spacy>=3.8.0",
+    "nltk",
+    "gensim",
+    "empath",
+    "keybert",
+    "textblob",
+    "NRCLex",
+    "umap-learn",
+    "datasets",
+    "accelerate",
+    "seaborn",
+    "matplotlib",
+    "dadapy",
 ]
+
 
 [tool.setuptools.packages.find]
 where = ["."]
