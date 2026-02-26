@@ -29,7 +29,6 @@ dependencies = [
     "seaborn",
     "matplotlib",
     "dadapy",
-    "wordfreq"
 ]
 
 [project.optional-dependencies]
@@ -41,8 +40,4 @@ include = ["TONY*"]
 
 [tool.setuptools.package-data]
 "TONY.SAE" = ["*.json", "*.pt"]
-where = ["."]
-include = ["TONY*"]
 
-[tool.setuptools.package-data]
-"TONY.SAE" = ["*.json", "*.pt"]
