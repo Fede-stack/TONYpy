@@ -168,26 +168,25 @@ class SAEInterpreter:
     
     def __init__(
         self,
-        sae_checkpoint_path: str = 'sae_best.pt',
-        feature_stats_path: str = 'feature_global_stats.json',
-        feature_interpretations_path: Optional[str] = 'features_labels_gemini3flash',
+        sae_checkpoint_path: Optional[str] = None,
+        feature_stats_path: Optional[str] = None,
+        feature_interpretations_path: Optional[str] = None,
         embedding_model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         device: str = 'mps',
         threshold_mode: str = 'moderate'
     ):
-        """
-        Initialize the interpreter
-        
-        Args:
-            sae_checkpoint_path: Path to trained SAE checkpoint (.pt)
-            feature_stats_path: Path to global feature statistics (JSON)
-            feature_interpretations_path: Path to GPT-4 interpretations (optional)
-            embedding_model_name: Name of SentenceTransformer model
-            device: 'mps', 'cuda', or 'cpu'
-            threshold_mode: 'conservative', 'moderate', or 'permissive'
-        """
         self.device = device
         self.threshold_mode = threshold_mode
+        
+        # Risolve i path: se non specificati, usa i file nella cartella del package
+        _SAE_DIR = Path(__file__).parent
+        
+        sae_checkpoint_path = Path(sae_checkpoint_path) if sae_checkpoint_path \
+            else _SAE_DIR / "sae_best.pt"
+        feature_stats_path = Path(feature_stats_path) if feature_stats_path \
+            else _SAE_DIR / "feature_global_stats.json"
+        feature_interpretations_path = Path(feature_interpretations_path) if feature_interpretations_path \
+            else _SAE_DIR / "features_labels_gemini3flash.json"
         
         print("Loading models...")
         
@@ -213,12 +212,13 @@ class SAEInterpreter:
             self.feature_stats = json.load(f)
         print(f"✓ Feature stats loaded: {len(self.feature_stats)} features")
         
-        # Load GPT-4 interpretations if available
+        # Load feature interpretations if available
         self.feature_interpretations = None
-        if feature_interpretations_path and Path(feature_interpretations_path).exists():
+        if feature_interpretations_path.exists():
             with open(feature_interpretations_path, 'r') as f:
                 self.feature_interpretations = json.load(f)
             print(f"✓ Interpretations loaded: {len(self.feature_interpretations)} features")
+
     
     def encode_text(self, text: str) -> np.ndarray:
         """
