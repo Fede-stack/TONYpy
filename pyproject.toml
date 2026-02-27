@@ -19,7 +19,6 @@ dependencies = [
     "spacy>=3.8.0",
     "nltk",
     "gensim",
-    "empath",
     "keybert",
     "textblob",
     "NRCLex",
