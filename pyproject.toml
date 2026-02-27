@@ -27,7 +27,8 @@ dependencies = [
     "accelerate",
     "seaborn",
     "matplotlib",
-    "wordfreq"
+    "wordfreq", 
+    "dadapy"
 ]
 
 [project.optional-dependencies]
