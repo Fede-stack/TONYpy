@@ -186,8 +186,8 @@ class SAEInterpreter:
         feature_stats_path = Path(feature_stats_path) if feature_stats_path \
             else _SAE_DIR / "feature_global_stats.json"
         feature_interpretations_path = Path(feature_interpretations_path) if feature_interpretations_path \
-            else _SAE_DIR / "features_labels_gemini3flash.json"
-        
+            else _SAE_DIR / "features_labels_qwen.json"
+    
         print("Loading models...")
         
         # Load sentence transformer for embeddings
