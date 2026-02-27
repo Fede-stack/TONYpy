@@ -1,10 +1,16 @@
 # TONY/Lexicon/__init__.py
-from .LinguisticMarkers import *  # ✅ sempre importabile
+from .LinguisticMarkers import *  
 
 try:
-    from .APP import *  # ❌ fallisce su Colab (no display), ok su Mac
+    from .APP import *  
 except ImportError:
     pass
 except Exception:
     pass  # tkinter può lanciare anche TclError se non c'è display
 
+try:
+    from .APP_Colab import *  
+except ImportError:
+    pass
+except Exception:
+    pass  
