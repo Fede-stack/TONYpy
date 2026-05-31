@@ -20,7 +20,7 @@ Answer: """
             trust_remote_code=True
         )
 
-    def predict_irf(self, text, max_new_tokens=200):
+    def highlight_evidence_IRF(self, text, max_new_tokens=200):
         prompt = f"{text}\n" + self.prompt_1
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
 
