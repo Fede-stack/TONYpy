@@ -70,7 +70,7 @@ from TONY.IRF import IRFPredictor, IRFPredictor_mlx
 
 text = 'Some days I keep living, even though I feel completely alone in the world'
 irf = IRFPredictor(model_name='FritzStack/IRF-QWEN8B_light')
-irf.predict_irf(text)
+irf.highlight_evidence_IRF(text)
 
 # Question 1: Is there evidence of Thwarted Belongingness?
 # Answer: Yes
