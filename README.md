@@ -69,8 +69,8 @@ The **Interpersonal Risk Factors** (**IRF**) module detects the two core interpe
 from TONY.IRF import IRFPredictor, IRFPredictor_mlx
 
 text = 'Some days I keep living, even though I feel completely alone in the world'
-irf = IRFPredictor(model_name='FritzStack/IRF-Qwen3-8B_4bit-merged')
-irf.highlight_evidence_IRF(text)
+irf = IRFPredictor(model_name='FritzStack/IRF-QWEN8B_light')
+irf.predict_irf(text)
 
 # Question 1: Is there evidence of Thwarted Belongingness?
 # Answer: Yes
