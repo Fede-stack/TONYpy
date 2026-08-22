@@ -42,7 +42,7 @@ from typing import List, Optional, Union
 import numpy as np
 import requests
 
-# ── lazy import: SentenceTransformers is optional ────────────────────────────
+# ── SentenceTransformers is optional ────────────────────────────
 try:
     from sentence_transformers import SentenceTransformer
     _ST_AVAILABLE = True
