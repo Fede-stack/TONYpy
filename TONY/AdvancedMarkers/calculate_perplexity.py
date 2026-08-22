@@ -3,10 +3,6 @@ from __future__ import annotations
 import math
 from typing import Optional
 
-# ---------------------------------------------------------------------------
-# Optional heavy imports – resolved lazily inside __init__ so the file can be
-# imported on machines that have only one of the two backends installed.
-# ---------------------------------------------------------------------------
 
 
 def _is_mlx_model(model_name: str, backend: Optional[str]) -> bool:
@@ -51,9 +47,6 @@ class PerplexityExtractor:
         ``model_name`` for the substring ``"mlx"`` to decide.
     """
 
-    # ------------------------------------------------------------------
-    # Construction
-    # ------------------------------------------------------------------
 
     def __init__(
         self,
